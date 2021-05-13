@@ -60,3 +60,20 @@ const str = logText<string>('안녕');
 str.split('');
 const login = logText<boolean>(true);
 login.valueOf();
+
+
+/* 인터페이스에 제네릭을 선언하는 방법 */
+// interface Dropdown {
+//     value: string;
+//     selected: boolean;
+// }
+
+// const obj: Dropdown = {value: 10, selected: false}; // 에러
+
+interface Dropdown2<T> {
+    value: T;
+    selected: boolean;
+}
+
+const obj2: Dropdown2<string> = {value: 'abc', selected: false};    // 정상
+const obj21: Dropdown2<number> = {value: 10, selected: false};    // 정상
