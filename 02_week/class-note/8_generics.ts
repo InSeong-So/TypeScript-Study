@@ -77,3 +77,48 @@ interface Dropdown2<T> {
 
 const obj2: Dropdown2<string> = {value: 'abc', selected: false};    // 정상
 const obj21: Dropdown2<number> = {value: 10, selected: false};    // 정상
+
+
+/* 제네릭의 타입 제한 */
+// 제네릭으로 받은 타입을 배열로 활용하겠다라고 제한
+// function logTextLength<T>(text: T[]): T[] {
+//     console.log(text.length);
+//     text.forEach(function (text) {
+//         console.log(text);
+//     });
+//     return text;
+// }
+
+// logTextLength<string>(['hi']);
+
+/* 제네릭의 타입 제한2 - 정의된 타입 이용하기 */
+interface LengthType {
+    length: number;
+}
+
+// 인터페이스를 상속하여 제네릭에 들어갈 수 있는 타입을 구분할 수 있다.
+function logTextLength<T extends LengthType>(text: T): T {
+    text.length;
+    return text;
+}
+
+logTextLength('a'); // 문자열은 기본적으로 length 함수가 제공됨
+logTextLength(10);  // 에러, 숫자에는 length가 적용되지 않음
+logTextLength({length: 10});  // 객체 내부에 length 프로퍼티가 있으므로 에러가 나지는 않음
+
+/* 제네릭의 타입 제한3 - keyof */
+interface ShoppingItem {
+    name: string;
+    price: number;
+    stock: number;
+}
+
+// extends : 기존에 정의된 인터페이스, 클래스, 타입 등을 확장하기 위해 사용한다.
+// keyof : 인터페이스의 한가지 속성만 받을 수 있게 제약을 걸겠다
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+    return itemOption;
+}
+
+// getShoppingItemOption(10);
+// getShoppingItemOption<string>('a');
+getShoppingItemOption("name");
