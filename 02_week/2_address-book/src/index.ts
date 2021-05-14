@@ -80,7 +80,7 @@ class AddressBook {
 
   findContactByPhone(phoneNumber, phoneType: string) {
     return this.contacts.filter(
-      contact => contact.phones[phoneType].num === phoneNumber
+      contact => contact.phones[phoneType].num === phoneNumber,
     );
   }
 
