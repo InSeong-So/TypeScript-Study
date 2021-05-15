@@ -9,3 +9,6 @@
 - [TypeScript Language Server](https://code.visualstudio.com/docs/languages/typescript#_code-suggestions)
   - [LSP](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
 - [타입 호환](https://joshua1988.github.io/ts/guide/type-compatibility.html)
+- [모듈화](https://joshua1988.github.io/ts/usage/modules.html)
+  - [예시] (https://joshua1988.github.io/vue-camp/es6/modules.html)
+  - [역사](https://d2.naver.com/helloworld/12864)
