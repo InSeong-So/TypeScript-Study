@@ -1,5 +1,7 @@
 # 타입스크립트 - 2주차
+
 ## 기초 문법과 구성
+
 - [프로토타입](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 - [오브젝트](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - Built-in JavaScript API 또는 JavaScript Native API
@@ -12,3 +14,5 @@
 - [모듈화](https://joshua1988.github.io/ts/usage/modules.html)
   - [예시] (https://joshua1988.github.io/vue-camp/es6/modules.html)
   - [역사](https://d2.naver.com/helloworld/12864)
+- [유틸리티](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+  - [대표적인 유틸리티](https://joshua1988.github.io/ts/usage/utility.html)
