@@ -122,3 +122,5 @@ function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
 // getShoppingItemOption(10);
 // getShoppingItemOption<string>('a');
 getShoppingItemOption("name");
+
+// 가장 많이 사용되는 곳은 API의 호출 후 응답에 대한 규칙을 정의하는 곳이다.
