@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        // @ts-check와 같은 효과를 내는 옵션은 checkJs
+        "allowJs": true,
+        // tsc
+        "target": "ES5",
+        // 컴파일된 파일 출력 경로
+        "outDir": "./built",
+        // 프로미스 베이스
+        "moduleResolution": "Node",
+        "lib": ["ES2015", "DOM", "DOM.Iterable"]
+    },
+    // src 하위에 있는 폴더만 컴파일 하겠다
+    "include": ["./src/**/*"]
+}
