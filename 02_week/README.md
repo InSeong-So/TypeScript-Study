@@ -16,3 +16,5 @@
   - [역사](https://d2.naver.com/helloworld/12864)
 - [유틸리티](https://www.typescriptlang.org/docs/handbook/utility-types.html)
   - [대표적인 유틸리티](https://joshua1988.github.io/ts/usage/utility.html)
+- [맵드 타입](https://github.com/Microsoft/TypeScript/pull/12114)
+  - [맵드 타입 프로포셜](https://github.com/Microsoft/TypeScript/pull/12114)
