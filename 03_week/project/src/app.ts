@@ -1,8 +1,8 @@
 // utils
-function $(selector: any) {
+function $(selector: string) {
   return document.querySelector(selector);
 }
-function getUnixTimestamp(date: any) {
+function getUnixTimestamp(date: Date) {
   return new Date(date).getTime();
 }
 
