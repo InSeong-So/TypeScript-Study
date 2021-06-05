@@ -28,16 +28,9 @@ export interface CovidSummaryResponse {
   Date: string;
   Global: Global;
   Message: string;
-  // NewConfirmed: 266219;
-  // NewDeaths: 8178;
-  // NewRecovered: 390631;
-  // TotalConfirmed: 172332852;
-  // TotalDeaths: 3710036;
-  // TotalRecovered: 110198604;
-  // ID: 'de6e39f8-63ac-4e42-b3dd-0118a97e568a';
 }
 
-interface CountrySummaryInfo {
+export interface CountrySummaryInfo {
   Cases: number;
   City: string;
   CityCode: string;
