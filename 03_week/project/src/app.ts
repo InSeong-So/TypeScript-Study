@@ -66,7 +66,7 @@ enum CovidStatus {
 }
 
 function fetchCountryInfo(
-  countryName: string,
+  countryName: string | undefined,
   status: CovidStatus,
 ): Promise<AxiosResponse<CountySummaryResponse>> {
   // params: confirmed, recovered, deaths
@@ -90,13 +90,28 @@ function initEvents() {
   rankList.addEventListener('click', handleListClick);
 }
 
+// strict가 추가되면서 타입 간 위계관계가 맞지 않아서 에러가 발생함
+// const a: Element
+// const b: HTMLElement
+// const c: HTMLDivElement
+
+// const ev1: Event
+// const ev2: UIEvent
+// const ev3: MouseEvent
+
 async function handleListClick(event: Event) {
   let selectedId;
   if (
     event.target instanceof HTMLParagraphElement ||
     event.target instanceof HTMLSpanElement
   ) {
-    selectedId = event.target.parentElement.id;
+    // 코드가독성 및 옵셔널 체이닝 연산자 소개를 위해 제외
+    // if(!event.target.parentElement){
+    //   return;
+    // }
+    selectedId = event.target.parentElement
+      ? event.target.parentElement.id
+      : undefined;
   }
   if (event.target instanceof HTMLLIElement) {
     selectedId = event.target.id;
