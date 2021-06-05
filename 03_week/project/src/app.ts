@@ -1,5 +1,5 @@
 // 타입 정의를 할 필요가 없는, 잘 정리된 라이브러리 : NONE
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 // 타입 정의가 필요한 라이브러리 : ERROR
 // chart.js 가 아닌 @types/chart.js 를 설치해야 함
 // axios처럼 불러올 수 없고 워낙 구버전 라이브러리 형태라 import를 달리 해야함
@@ -47,8 +47,22 @@ function createSpinnerElement(id: any) {
 let isDeathLoading = false;
 const isRecoveredLoading = false;
 
+interface CovidSummaryResponse {
+  Countries: any[];
+  Date: string;
+  Global: any;
+  Message: string;
+  // NewConfirmed: 266219;
+  // NewDeaths: 8178;
+  // NewRecovered: 390631;
+  // TotalConfirmed: 172332852;
+  // TotalDeaths: 3710036;
+  // TotalRecovered: 110198604;
+  // ID: 'de6e39f8-63ac-4e42-b3dd-0118a97e568a';
+}
+
 // api
-function fetchCovidSummary() {
+function fetchCovidSummary(): Promise<AxiosResponse<CovidSummaryResponse>> {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
 }
