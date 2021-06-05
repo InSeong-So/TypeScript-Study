@@ -159,12 +159,20 @@ function setDeathsList(data: CountySummaryResponse) {
     p.textContent = new Date(value.Date).toLocaleDateString().slice(0, -1);
     li.appendChild(span);
     li.appendChild(p);
-    deathsList.appendChild(li);
+    // 매번 이렇게 처리하는 건 매우 번거로움
+    // if (!deathsList) {
+    //   return;
+    // }
+    // 타입 어선셜 non-null, null 값이 아니라고 단언하는 것
+    deathsList!.appendChild(li);
   });
 }
 
 function clearDeathList() {
-  deathsList.innerHTML = null;
+  if (!deathsList) {
+    return;
+  }
+  deathsList.innerHTML = '';
 }
 
 function setTotalDeathsByCountry(data: CountySummaryResponse) {
