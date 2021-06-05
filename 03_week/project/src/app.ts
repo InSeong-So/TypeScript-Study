@@ -16,6 +16,7 @@ import {
 
 // utils
 function $(selector: string) {
+  // Element | null
   return document.querySelector(selector);
 }
 function getUnixTimestamp(date: Date | string) {
@@ -29,9 +30,11 @@ const confirmedTotal = $('.confirmed-total') as HTMLSpanElement;
 const deathsTotal = $('.deaths') as HTMLParagraphElement;
 const recoveredTotal = $('.recovered') as HTMLParagraphElement;
 const lastUpdatedTime = $('.last-updated-time') as HTMLParagraphElement;
-const rankList = $('.rank-list');
-const deathsList = $('.deaths-list');
-const recoveredList = $('.recovered-list');
+// 여기에서 정의하지 않으면 아래에서 타입을 연산해줘야 함
+const rankList = $('.rank-list') as HTMLOListElement;
+const deathsList = $('.deaths-list') as HTMLOListElement;
+const recoveredList = $('.recovered-list') as HTMLOListElement;
+
 const deathSpinner = createSpinnerElement('deaths-spinner');
 const recoveredSpinner = createSpinnerElement('recovered-spinner');
 
@@ -169,9 +172,7 @@ function setDeathsList(data: CountySummaryResponse) {
 }
 
 function clearDeathList() {
-  if (!deathsList) {
-    return;
-  }
+  if (!deathsList) return;
   deathsList.innerHTML = '';
 }
 
@@ -194,12 +195,22 @@ function setRecoveredList(data: CountySummaryResponse) {
     p.textContent = new Date(value.Date).toLocaleDateString().slice(0, -1);
     li.appendChild(span);
     li.appendChild(p);
-    recoveredList.appendChild(li);
+
+    // const num = 10;
+    // const a = num === 10 ? true : false;
+    recoveredList?.appendChild(li);
+    // 옵셔널 체이닝 오퍼레이터, '?'는 아래와 같은 의미이다.
+    // if (recoveredList === null || recoveredList === undefined) {
+    //   return;
+    // } else {
+    //   recoveredList.appendChild(li);
+    // }
   });
 }
 
 function clearRecoveredList() {
-  recoveredList.innerHTML = null;
+  if (!recoveredList) return;
+  recoveredList.innerHTML = '';
 }
 
 function setTotalRecoveredByCountry(data: CountySummaryResponse) {
