@@ -6,6 +6,8 @@ import axios, { AxiosResponse } from 'axios';
 // import Chart from 'chart.js';
 // 그 외에는 typeRoots를 이용하여 선언하기
 import * as Chart from 'chart.js';
+// 타입 모듈
+import { CountySummaryResponse, CovidSummaryResponse } from './covid/index';
 
 // utils
 function $(selector: string) {
@@ -47,20 +49,6 @@ function createSpinnerElement(id: any) {
 let isDeathLoading = false;
 const isRecoveredLoading = false;
 
-interface CovidSummaryResponse {
-  Countries: any[];
-  Date: string;
-  Global: any;
-  Message: string;
-  // NewConfirmed: 266219;
-  // NewDeaths: 8178;
-  // NewRecovered: 390631;
-  // TotalConfirmed: 172332852;
-  // TotalDeaths: 3710036;
-  // TotalRecovered: 110198604;
-  // ID: 'de6e39f8-63ac-4e42-b3dd-0118a97e568a';
-}
-
 // api
 function fetchCovidSummary(): Promise<AxiosResponse<CovidSummaryResponse>> {
   const url = 'https://api.covid19api.com/summary';
@@ -73,7 +61,10 @@ enum CovidStatus {
   Deaths = 'deaths',
 }
 
-function fetchCountryInfo(countryCode: string, status: CovidStatus) {
+function fetchCountryInfo(
+  countryCode: string,
+  status: CovidStatus,
+): Promise<AxiosResponse<CountySummaryResponse>> {
   // params: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
   return axios.get(url);
