@@ -10,7 +10,10 @@
         "moduleResolution": "Node",
         "lib": ["ES2015", "DOM", "DOM.Iterable"],
         // 타입이 정해져있지 않은 코드를 any라도 지정해야한다고 제한
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        // 1번째 인자 : 제공되는 types
+        // 2번째 인자 : 내가 만드는 types
+        "typeRoots":["./node_modules/@types", "./types"]
     },
     // src 하위에 있는 폴더만 컴파일 하겠다
     "include": ["./src/**/*"],

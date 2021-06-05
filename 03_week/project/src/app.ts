@@ -1,3 +1,12 @@
+// 타입 정의를 할 필요가 없는, 잘 정리된 라이브러리 : NONE
+import axios from 'axios';
+// 타입 정의가 필요한 라이브러리 : ERROR
+// chart.js 가 아닌 @types/chart.js 를 설치해야 함
+// axios처럼 불러올 수 없고 워낙 구버전 라이브러리 형태라 import를 달리 해야함
+// import Chart from 'chart.js';
+// 그 외에는 typeRoots를 이용하여 선언하기
+import * as Chart from 'chart.js';
+
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
