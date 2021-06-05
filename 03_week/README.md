@@ -51,7 +51,7 @@
       - 기능을 사소하게라도 변경하지 않도록 주의
     - 테스트 코드가 성공하는지 확인
 
-3-1.  명시적인 any 선언하기
+3.  명시적인 any 선언하기
 
     - 프로젝트 테스트 코드가 통과하는지 확인
     - `tsconfig.json` 파일에 `noImplicitAny: true` 추가
@@ -61,21 +61,27 @@
     - 테스트 코드가 통과하는지 확인
     - 가능한 한 구체적인 타입으로 타입 정의
 
-3-2.  `strict` 모드 설정
-
-    ```json
-    {
-      "strict": true,
-      "strictNullChecks": true,
-      "strictFunctionTypes": true,
-      "strictBindCallApply": true
-    }
-    ```
-
 4. 프로젝트 환경 구성
     - babel, eslint, prettier 등의 환경 설정
 
 5. 외부 라이브러리 모듈화
+
+6.  `strict` 옵션 추가 후 타입 정의
+
+  ```json
+  {
+    // strict와 관련된 모든 속성이 true로 변경됨
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+  }
+  ```
+
+  - [strict 옵션 링크](https://www.typescriptlang.org/tsconfig#strict)
 
 ## 컴파일
 
