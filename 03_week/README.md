@@ -94,3 +94,4 @@
 - [tsconfig-checkJs](https://www.typescriptlang.org/tsconfig#checkJs)
 - [arrow-function](https://joshua1988.github.io/vue-camp/es6/fat-arrow.html)
 - [covid-19 api](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest#63fda84a-6b43-4506-9cc7-2172561d5c16)
+- [타입스크립트 Deep Dive](https://basarat.gitbook.io/typescript/)
