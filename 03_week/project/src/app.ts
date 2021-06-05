@@ -15,9 +15,12 @@ import {
 } from './covid/index';
 
 // utils
-function $(selector: string) {
+// 타입은 HTMLELement의 하위여야만 하고, 값이 존재하지 않을 때는 DIV Element로 정의한다.
+function $<T extends HTMLElement = HTMLDivElement>(selector: string) {
   // Element | null
-  return document.querySelector(selector);
+  const element = document.querySelector(selector);
+  // 타입 단언을 통해 null 처리가 필요 없어짐
+  return element as T;
 }
 function getUnixTimestamp(date: Date | string) {
   return new Date(date).getTime();
@@ -26,14 +29,14 @@ function getUnixTimestamp(date: Date | string) {
 // DOM
 // let element: Element | HTMLElement | HTMLParagraphElement;
 // 타입 간에 호환이 되지 않는 형태일 때 단언으로 이를 해결
-const confirmedTotal = $('.confirmed-total') as HTMLSpanElement;
-const deathsTotal = $('.deaths') as HTMLParagraphElement;
-const recoveredTotal = $('.recovered') as HTMLParagraphElement;
-const lastUpdatedTime = $('.last-updated-time') as HTMLParagraphElement;
+const confirmedTotal = $<HTMLSpanElement>('.confirmed-total');
+const deathsTotal = $<HTMLParagraphElement>('.deaths');
+const recoveredTotal = $<HTMLParagraphElement>('.recovered');
+const lastUpdatedTime = $<HTMLParagraphElement>('.last-updated-time');
 // 여기에서 정의하지 않으면 아래에서 타입을 연산해줘야 함
-const rankList = $('.rank-list') as HTMLOListElement;
-const deathsList = $('.deaths-list') as HTMLOListElement;
-const recoveredList = $('.recovered-list') as HTMLOListElement;
+const rankList = $<HTMLOListElement>('.rank-list');
+const deathsList = $<HTMLOListElement>('.deaths-list');
+const recoveredList = $<HTMLOListElement>('.recovered-list');
 
 const deathSpinner = createSpinnerElement('deaths-spinner');
 const recoveredSpinner = createSpinnerElement('recovered-spinner');
