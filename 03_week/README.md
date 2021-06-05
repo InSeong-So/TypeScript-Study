@@ -52,12 +52,24 @@
     - 테스트 코드가 성공하는지 확인
 
 3.  명시적인 any 선언하기
+
     - 프로젝트 테스트 코드가 통과하는지 확인
     - `tsconfig.json` 파일에 `noImplicitAny: true` 추가
     - 가능한 타입을 적용할 수 있는 모든 곳에 타입을 적용
       - 라이브러리를 쓰는 경우 `DefinitelyTyped`에서 `@types` 관련 라이브러리를 찾아 설치
       - 만약 타입을 정하기 어려운 곳이 있으면 명시적으로 any 선언
     - 테스트 코드가 통과하는지 확인
+
+4.  `strict` 모드 설정
+
+    ```json
+    {
+      "strict": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictBindCallApply": true
+    }
+    ```
 
 ## 컴파일
 
